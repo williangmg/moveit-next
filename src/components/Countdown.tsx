@@ -36,6 +36,8 @@ export function Countdown() {
     }
   }, [isActive, time]);
 
+  console.log("teste")
+
   return (
     <div>
       <div className={styles.countdownContainer}>
