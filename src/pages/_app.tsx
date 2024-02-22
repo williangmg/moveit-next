@@ -1,11 +1,10 @@
 import "../styles/global.css";
-import {ChallengesProvider} from "../contexts/ChallengesContext";
-import { useState } from "react";
+import { ChallengesProvider } from "../contexts/ChallengesContext";
 
-function App({ Component, pageProps }) {  
+function App({ Component, pageProps }) {
   return (
     <ChallengesProvider>
-      <Component {...pageProps} />;
+        <Component {...pageProps} />;
     </ChallengesProvider>
   );
 }
