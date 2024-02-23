@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { GetServerSideProps } from "next";
 import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
 
@@ -8,11 +9,11 @@ import { Countdown } from "../components/Countdown";
 import { ChallengBox } from "../components/ChallengeBox";
 import { CountdownProvider } from "../contexts/CountdownContext";
 
-export default function Home() {
+export default function Home(v ) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Inicio | Move.it</title>
+        <title>Inicio | Move.it com Next</title>
       </Head>
 
       <ExperienceBar />
@@ -32,3 +33,15 @@ export default function Home() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
+
+  return {
+    props: {
+      level,
+      currentExperience,
+      challengesCompleted,
+    },
+  };
+};
